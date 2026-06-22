@@ -1,5 +1,5 @@
 import { ColorPicker } from "./components/custom/color-picker"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { SlidingPagination } from "./components/custom/sliding-pagination"
 import Page01 from "./pages/01"
 import Page02 from "./pages/02"
@@ -20,14 +20,34 @@ import {
 } from "./components/ui/sidebar"
 
 export function App() {
-  const [page, setPage] = useState(4)
-  const [theme, setTheme] = useState<"light" | "dark">("light")
+  const [page, setPage] = useState(1)
+  const [theme, setTheme] = useState<"light" | "dark">("dark")
   const [cssVars, setCssVars] = useState<ThemeState["cssVars"]>(THEME_VARS_RGBA)
-  const pages = [<Page01 />, <Page02 />, <Page03 />, <Page04 />, <Page05 />]
+  const pages = [Page01, Page02, Page03, Page04, Page05]
 
   const getCssVars = (v: ThemeState["cssVars"]) => {
     setCssVars(v)
   }
+
+  useEffect(() => {
+    const t = localStorage.getItem("theme")
+    if (
+      t === "dark" ||
+      (!("theme" in localStorage) &&
+        window.matchMedia("(prefers-color-scheme: dark)").matches)
+    ) {
+      document.documentElement.classList.add("dark")
+      // eslint-disable-next-line react-hooks/set-state-in-effect
+      setTheme("dark")
+    } else {
+      document.documentElement.classList.remove("dark")
+      setTheme("light")
+    }
+
+    if (!t) {
+      localStorage.setItem("theme", theme)
+    }
+  }, [])
 
   return (
     <SidebarProvider className="flex h-screen w-full overflow-hidden">
@@ -47,18 +67,21 @@ export function App() {
           currentPage={page}
           onPageChange={setPage}
         />
-        <div className="no-scrollbar min-h-0 flex-1 overflow-y-auto pt-7 pb-20 px-20">
-          {pages.map((P, i) => i + 1 === page && P)}
+        <div className="no-scrollbar min-h-0 flex-1 overflow-y-auto px-20 pt-7 pb-20">
+          {pages.map((P, i) => i + 1 === page && <P key={i + 1} />)}
         </div>
 
         <Button
           variant="outline"
           size="icon-lg"
           onClick={() => {
-            setTheme((prev) => (prev === "light" ? "dark" : "light"))
-            localStorage.setItem("theme", theme)
-            document.documentElement.className = theme
-            applyThemeToDOM(cssVars)
+            setTheme((prev) => {
+              const t = prev === "light" ? "dark" : "light"
+              localStorage.setItem("theme", t)
+              document.documentElement.className = t
+              applyThemeToDOM(cssVars)
+              return t
+            })
           }}
           className="absolute right-2.5 bottom-2.5 bg-background text-primary"
         >
