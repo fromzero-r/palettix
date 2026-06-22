@@ -145,7 +145,7 @@ const STAMP_CARDS_DATA = [
       bg: "bg-surface-1 border-border",
       text: "text-text-primary",
       mutedText: "text-text-secondary",
-      accentBg: "bg-primary hover:bg-state-hover",
+      accentBg: "bg-primary hover:bg-state-hover hover:text-text-primary",
       accentText: "text-primary-foreground",
       badgeBg: "bg-accent text-accent-foreground border-border-subtle",
     },
@@ -163,7 +163,7 @@ const STAMP_CARDS_DATA = [
       bg: "bg-surface-2 border-border-strong",
       text: "text-text-primary",
       mutedText: "text-text-tertiary",
-      accentBg: "bg-info hover:bg-state-hover",
+      accentBg: "bg-info hover:bg-state-hover hover:text-muted-foreground",
       accentText: "text-info-foreground",
       badgeBg: "bg-info-muted/20 text-info border-info-muted/30",
     },
@@ -181,9 +181,9 @@ const STAMP_CARDS_DATA = [
       bg: "bg-surface-3 border-border",
       text: "text-text-primary",
       mutedText: "text-text-secondary",
-      accentBg: "bg-success hover:bg-state-hover",
+      accentBg: "bg-success hover:bg-state-hover hover:text-text-primary/70",
       accentText: "text-success-foreground",
-      badgeBg: "bg-success-muted text-success-foreground border-border-subtle",
+      badgeBg: "bg-success text-success-foreground border-border-subtle",
     },
   },
   {
@@ -199,7 +199,7 @@ const STAMP_CARDS_DATA = [
       bg: "bg-surface-4 border-border",
       text: "text-text-primary",
       mutedText: "text-text-secondary",
-      accentBg: "bg-warning hover:bg-state-hover",
+      accentBg: "bg-warning hover:bg-state-hover hover:text-accent-foreground",
       accentText: "text-warning-foreground",
       badgeBg: "bg-warning-muted/30 text-warning-foreground border-warning/20",
     },
@@ -217,9 +217,9 @@ const STAMP_CARDS_DATA = [
       bg: "bg-surface-5 border-border-strong",
       text: "text-text-primary",
       mutedText: "text-text-secondary",
-      accentBg: "bg-error hover:bg-state-hover",
+      accentBg: "bg-error hover:bg-state-hover hover:text-text-primary",
       accentText: "text-error-foreground",
-      badgeBg: "bg-error-muted text-error-foreground border-error/20",
+      badgeBg: "bg-muted text-muted-foreground border-border-subtle",
     },
   },
   {
@@ -232,10 +232,10 @@ const STAMP_CARDS_DATA = [
     status: "SECONDARY ITEM",
     dateTime: "June 19, 2026 • 01:40 PM",
     colors: {
-      bg: "bg-surface-6 border-border-subtle",
+      bg: "bg-surface-5 border-border-subtle",
       text: "text-text-primary",
       mutedText: "text-text-tertiary",
-      accentBg: "bg-secondary hover:bg-state-hover",
+      accentBg: "bg-secondary hover:bg-state-hover hover:text-muted-foreground",
       accentText: "text-secondary-foreground",
       badgeBg: "bg-popover text-popover-foreground border-border",
     },
@@ -253,7 +253,7 @@ const STAMP_CARDS_DATA = [
       bg: "bg-surface-7 border-border-strong",
       text: "text-text-primary",
       mutedText: "text-text-secondary",
-      accentBg: "bg-chart-1 hover:bg-state-hover",
+      accentBg: "bg-chart-1 hover:bg-state-hover hover:text-text-primary",
       accentText: "text-primary-foreground",
       badgeBg: "bg-muted text-muted-foreground border-border-subtle",
     },
@@ -960,7 +960,7 @@ function SwipeableStampCard({
       </div>
 
       <button
-        className={`w-full rounded-xl px-4 py-3 text-sm font-bold tracking-tight transition-all active:scale-[0.97] ${c.accentBg} ${c.accentText} shadow-md`}
+        className={`w-full rounded-xl px-4 py-3 text-sm font-bold tracking-tight transition-all active:scale-[0.97] ${c.accentBg} ${c.accentText} shadow-md cursor-pointer`}
       >
         {data.buttonText}
       </button>

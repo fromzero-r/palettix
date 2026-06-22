@@ -20,7 +20,7 @@ import {
 } from "./components/ui/sidebar"
 
 export function App() {
-  const [page, setPage] = useState(1)
+  const [page, setPage] = useState(4)
   const [theme, setTheme] = useState<"light" | "dark">("light")
   const [cssVars, setCssVars] = useState<ThemeState["cssVars"]>(THEME_VARS_RGBA)
   const pages = [<Page01 />, <Page02 />, <Page03 />, <Page04 />, <Page05 />]
@@ -41,13 +41,13 @@ export function App() {
         <SidebarTrigger className="absolute top-3 left-80" />
       </Sidebar>
 
-      <SidebarInset className="mx-auto flex max-w-6xl flex-col px-23">
+      <SidebarInset className="mx-auto flex max-w-6xl flex-col">
         <SlidingPagination
           totalPages={5}
           currentPage={page}
           onPageChange={setPage}
         />
-        <div className="no-scrollbar min-h-0 flex-1 overflow-y-auto pt-7 pb-20">
+        <div className="no-scrollbar min-h-0 flex-1 overflow-y-auto pt-7 pb-20 px-20">
           {pages.map((P, i) => i + 1 === page && P)}
         </div>
 

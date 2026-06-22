@@ -254,7 +254,7 @@ function TopPlaylist() {
               Whispering to the moon ♪
             </p>
           </div>
-          <div className="flex size-9 items-center justify-center rounded-full bg-primary-foreground">
+          <div className="flex size-9 items-center justify-center rounded-full bg-primary-foreground ml-auto">
             <Play className="size-4 fill-muted stroke-muted-foreground" />
           </div>
         </div>
@@ -270,7 +270,7 @@ function TopPlaylist() {
               Whispering to the moon ♪
             </p>
           </div>
-          <div className="flex size-9 items-center justify-center rounded-full bg-primary-foreground">
+          <div className="flex size-9 items-center justify-center rounded-full bg-primary-foreground ml-auto">
             <Play className="size-4 fill-muted stroke-muted-foreground" />
           </div>
         </div>
@@ -286,7 +286,7 @@ function TopPlaylist() {
               Whispering to the moon ♪
             </p>
           </div>
-          <div className="flex size-9 items-center justify-center rounded-full bg-primary-foreground">
+          <div className="flex size-9 items-center justify-center rounded-full bg-primary-foreground ml-auto">
             <Play className="size-4 fill-muted stroke-muted-foreground" />
           </div>
         </div>
