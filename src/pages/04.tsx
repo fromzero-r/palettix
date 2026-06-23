@@ -389,7 +389,7 @@ function RadialFab() {
     {
       icon: Contrast,
       label: "Contrast",
-      bg: "var(--surface-8)",
+      bg: "var(--surface-4)",
       onClick: () => console.log("Contrast clicked"),
     },
     {
@@ -401,13 +401,13 @@ function RadialFab() {
     {
       icon: Compass,
       label: "Target",
-      bg: "var(--surface-9)",
+      bg: "var(--surface-3)",
       onClick: () => console.log("Target clicked"),
     },
     {
       icon: Eye,
       label: "View",
-      bg: "var(--surface-7)",
+      bg: "var(--surface-5)",
       onClick: () => console.log("View clicked"),
     },
   ]
@@ -456,7 +456,7 @@ function RadialFab() {
         <Button
           size="icon"
           className={cn(
-            "h-16 w-16 rounded-full bg-surface-9 text-white shadow-lg transition-transform duration-300 hover:bg-[#4f46e5]",
+            "h-16 w-16 rounded-full bg-surface-3 text-white shadow-lg transition-transform duration-300 hover:bg-[#4f46e5]",
             isOpen && "scale-100"
           )}
           onClick={() => setIsOpen(!isOpen)}
